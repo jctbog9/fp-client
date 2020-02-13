@@ -1,6 +1,5 @@
 <template>
   <div id="landingContainer">
-    <user-nav />
     <div class="home-header">
       Leading the Way Forward in Football Analysis
     </div>
@@ -58,9 +57,6 @@ import { mapGetters } from "vuex";
 import UserNav from '@/components/UserNav'
 
 export default {
-  components: {
-    UserNav
-  },
   computed: {
     ...mapGetters({
       appData: "appData",

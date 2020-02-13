@@ -1,8 +1,19 @@
 <template>
   <div>
+    <user-nav />
     <nuxt />
   </div>
 </template>
+
+<script>
+import UserNav from '@/components/UserNav'
+
+export default {
+  components: {
+    UserNav
+  }
+}
+</script>
 
 <style>
 html {
