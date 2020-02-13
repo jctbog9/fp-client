@@ -1,21 +1,21 @@
 <template>
   <div class="header">
     <div class="left-nav">
-      <div class="logo">
+      <nuxt-link class="logo" to="/">
         <div>Forward</div>
         <div class="progress">Progress</div>
-      </div>
+      </nuxt-link>
       <div class="nav-items">
-        <nuxt-link to="/">
+        <nuxt-link to="/" class="nav-item">
           Home
         </nuxt-link>
-        <nuxt-link to="/blog">
+        <nuxt-link to="/blog" class="nav-item">
           Blog
         </nuxt-link>
-        <nuxt-link to="/about-us">
+        <nuxt-link to="/about-us" class="nav-item">
           About Us
         </nuxt-link>
-        <nuxt-link to="/upcoming-games">
+        <nuxt-link to="/upcoming-games" class="nav-item">
           Upcoming Games
         </nuxt-link>
       </div>
@@ -33,6 +33,19 @@ export default {
 </script>
 
 <style>
+.nav-item {
+  color: #D1D5DA;
+}
+
+.nav-item:hover,
+.nav-item:focus {
+  color: #FFFFFF;
+}
+
+.nav-item:focus {
+  font-weight: bold;
+}
+
 .progress {
   margin-left: 10px;
   height: 26px;
@@ -55,7 +68,8 @@ export default {
   padding: 0 10px;
 }
 
-.logo {
+.logo,
+.logo:hover {
   padding: 5px 10px;
   font-family: paralucent, sans-serif;
   font-style: italic;
@@ -65,17 +79,18 @@ export default {
   line-height: 1em;
   letter-spacing: 0.05em;
 }
- .right-nav {
-   display: flex;
-   flex-direction: row;
-   width: 500px;
-   justify-content: flex-end;
- }
 
- .nav-items {
-   display: flex;
-   flex-direction: row;
-   width: 360px;
-   justify-content: space-evenly;
- }
+.right-nav {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  justify-content: flex-end;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  width: 360px;
+  justify-content: space-evenly;
+}
 </style>
