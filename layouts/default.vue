@@ -1,16 +1,25 @@
 <template>
   <div>
-    <user-nav />
+    <admin-nav v-if="isAdmin"/>
+    <user-nav v-if="isUser"/>
     <nuxt />
   </div>
 </template>
 
 <script>
 import UserNav from '@/components/UserNav'
+import AdminNav from '@/components/AdminNav'
 
 export default {
   components: {
-    UserNav
+    UserNav,
+    AdminNav
+  },
+  data () {
+    return {
+      isAdmin: true,
+      isUser: false
+    }
   }
 }
 </script>
