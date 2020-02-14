@@ -77,6 +77,9 @@ export default {
       currentSlide: 0
     };
   },
+  async asyncData ({store}) {
+    await store.dispatch('blog/fetchBlogPosts')
+  },
   methods: {
     isLastLatestPost(post) {
       return _.last(this.otherLatestPosts) === post;
