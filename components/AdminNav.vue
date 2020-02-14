@@ -9,12 +9,26 @@
         <nuxt-link to="/" class="nav-item">
           Home
         </nuxt-link>
-        <nuxt-link to="/" class="nav-item">
-          Notes
-        </nuxt-link>
-        <dropdown
-          :links="menuItems"
-        />
+        <div :class="'dropdown ' + isActive" v-on:mouseleave="hideMenu" v-on:mouseenter="showMenu">
+          <div>
+            <div class="nav-item">
+              Notes V
+            </div>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <nuxt-link to="/notes/mynotes" class="dropdown-item">
+                New Note
+              </nuxt-link>
+              <nuxt-link to="/notes/newnote" class="dropdown-item">
+                My Notes
+              </nuxt-link>
+              <nuxt-link to="/notes/sharednotes" class="dropdown-item">
+                Shared With Me
+              </nuxt-link>
+            </div>
+          </div>
+        </div>
         <nuxt-link to="/blog" class="nav-item">
           Blog
         </nuxt-link>
@@ -37,23 +51,40 @@ export default {
   name: 'AdminNav',
   data() {
     return {
-      links: [
+      displayDropdown: false,
+      menuItems: [
         {
           id: 1,
           title: 'New Note',
-          slug: 'newnote'
+          url: '/newnote'
         },
         {
           id: 2,
           title: 'My Notes',
-          slug: 'mynotes'
+          url: '/mynotes'
         },
         {
           id: 3,
           title: 'Shared Notes',
-          slug: 'sharednotes'
+          url: '/sharednotes'
         }
-      ]
+      ],
+      isActive: ''
+    }
+  },
+  methods: {
+    showOrHide () {
+      if (this.isActive === '') {
+        this.isActive = 'is-active'
+      } else {
+        this.isActive = ''
+      }
+    },
+    hideMenu () {
+      this.isActive = ''
+    },
+    showMenu () {
+      this.isActive = 'is-active'
     }
   }
 }
