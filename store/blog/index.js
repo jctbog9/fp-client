@@ -4,7 +4,6 @@ import {
 
 const state = () => {
   return {
-    coverImageURL: null,
     pageOfBlogPosts: [],
     numberOfPages: 0,
     latestPosts: []

@@ -18,7 +18,7 @@
           {{featuredPost.subTitle}}
         </div>
         <div class="author-info">
-          {{featuredPost.author.firstName}} {{featuredPost.author.lastName}} {{featuredPost.createdAt}}
+          John Smith-  {{featuredPost.createdAt}}
         </div>
         <div class="sample-description">
           {{truncateFeature(featuredPost.body)}}
@@ -42,7 +42,7 @@
           {{post.subTitle}}
         </div>
         <div class="author-info">
-          {{post.author.firstName}} {{post.author.lastName}} {{post.createdAt}}
+          John Smith- {{post.createdAt}}
         </div>
         <div class="sample-description">
           {{truncateSmall(post.body)}}
@@ -62,11 +62,14 @@ export default {
       latestPosts: 'blog/latestPosts'
     }),
     featuredPost () {
-      return this.latestPosts[0]
+      return this.latestPosts[1]
     },
     otherPosts () {
       return this.latestPosts.slice(1, 99) // Will eventually be getting this information from the API in pages of 10 posts each. Eventually will not need to be sliced and will just start with 10
     }
+  },
+  async asyncData ({store}) {
+    await store.dispatch('blog/fetchBlogPosts')
   },
   methods: {
     truncateFeature (postBody) {
