@@ -6,7 +6,7 @@
     <div class="featured-section">
       <div class="carousel">
         <div class="featured-carousel">
-          <img :src="latestPosts[0].coverImageURL">
+          <img :src="latestPosts[1].coverImageURL">
         </div>
         <div class="preview-section">
           Preview Text Goes Here
