@@ -20,7 +20,7 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="nav-right">
+    <div class="nav-right" v-on:click="handleLogin">
       Login
     </div>
   </div>
@@ -28,7 +28,12 @@
 
 <script>
 export default {
-  name: 'UserNav'
+  name: 'UserNav',
+  methods: {
+    handleLogin() {
+      this.$store.dispatch('loginOrLogout')
+    }
+  }
 }
 </script>
 

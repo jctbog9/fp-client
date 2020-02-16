@@ -6,7 +6,8 @@ const state = () => {
   return {
     pageOfBlogPosts: [],
     numberOfPages: 0,
-    latestPosts: []
+    latestPosts: [],
+    isLoggedIn: false
   }
 }
 
@@ -26,6 +27,9 @@ const actions = {
 const getters = {
   latestPosts(state) {
     return state.latestPosts
+  },
+  isLoggedIn(state) {
+    return state.isLoggedIn
   }
 }
 

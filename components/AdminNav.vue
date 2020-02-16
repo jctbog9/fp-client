@@ -40,7 +40,7 @@
         </nuxt-link>
       </div>
     </div>
-    <div class="nav-right">
+    <div class="nav-right" v-on:click="handleLogout">
       Logout
     </div>
   </div>
@@ -73,6 +73,9 @@ export default {
     }
   },
   methods: {
+    handleLogout () {
+      this.$store.dispatch('loginOrLogout')
+    },
     showOrHide () {
       if (this.isActive === '') {
         this.isActive = 'is-active'
