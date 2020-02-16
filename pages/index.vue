@@ -4,14 +4,9 @@
       Leading the Way Forward in Football Analysis
     </div>
     <div class="featured-section">
-      <div class="carousel">
-        <div class="featured-carousel">
-          <img :src="latestPosts[1].coverImageURL">
-        </div>
-        <div class="preview-section">
-          Preview Text Goes Here
-        </div>
-      </div>
+      <feature-slider
+        :slides="carouselSlides"
+      />
       <div class="latest-container">
         <div class="red-title">
           LATEST
@@ -55,8 +50,10 @@ import _ from "lodash";
 import { mapGetters } from "vuex";
 
 import UserNav from '@/components/UserNav'
+import FeatureSlider from '@/components/FeatureSlider'
 
 export default {
+  components: { FeatureSlider },
   computed: {
     ...mapGetters({
       appData: "appData",
@@ -145,7 +142,7 @@ export default {
 .featured-section {
   display: flex;
   flex-direction: row;
-  width: 640px;
+  width: 700px;
   justify-content: space-between;
   overflow: hidden;
   margin: auto;
